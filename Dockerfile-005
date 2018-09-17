@@ -1,0 +1,14 @@
+FROM nginx:alpine
+
+RUN apk add --no-cache curl zsh
+
+HEALTHCHECK --interval=2s --timeout=3s \
+			CMD curl -fs http://localhost/ || exit 1
+
+RUN set
+
+SHELL [ "zsh", "-c" ]
+
+RUN set
+
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

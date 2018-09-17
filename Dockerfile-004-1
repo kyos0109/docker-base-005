@@ -1,0 +1,5 @@
+FROM local/test004
+
+RUN ls -al /tmp
+
+ENTRYPOINT ["sh"]

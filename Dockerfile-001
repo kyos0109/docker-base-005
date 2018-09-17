@@ -1,0 +1,9 @@
+FROM alpine:3.8
+RUN ls -al /
+ENV debug=true
+LABEL org.label-schema.build-date=20180913 \
+          org.label-schema.schema-version="1.0"
+RUN set
+
+ENTRYPOINT [ "sh" ]
+

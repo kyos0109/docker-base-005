@@ -1,0 +1,8 @@
+FROM alpine:3.8
+
+ONBUILD RUN apk update
+ONBUILD ADD nginx.conf /tmp
+
+RUN ls -al /tmp
+
+ENTRYPOINT ["sh"]

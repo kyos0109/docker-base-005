@@ -1,0 +1,16 @@
+FROM nginx:1.14.0-alpine
+
+ADD ngin*.conf /etc/nginx/nginx.conf
+
+ADD nginx-1.14.0.tar.gz /tmp
+
+RUN ls -al /tmp/nginx-1.14.0
+
+EXPOSE 80
+
+VOLUME [ "/var/cache/nginx" ]
+
+STOPSIGNAL SIGKILL
+
+# CMD ["nginx", "-g", "daemon off;"]  <= nginx Dockerfile default cmd
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
