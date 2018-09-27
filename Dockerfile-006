@@ -1,0 +1,12 @@
+FROM alpine:3.8 AS base
+RUN apk add --no-cache curl
+
+FROM debian AS second
+RUN echo hello > /hello
+
+FROM ubuntu AS third
+RUN echo world > /world
+
+FROM base
+COPY --from=second /hello /hello
+COPY --from=third /world /world
